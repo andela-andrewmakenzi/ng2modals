@@ -8,12 +8,17 @@ import { ModalService } from './../modal/modal.service';
 })
 export class TestcComponent implements OnInit {
 
-  constructor(private ms: ModalService) { }
+  constructor(private dialogService: ModalService) { }
 
   ngOnInit() {
   }
 
   handleClick() {
-    this.ms.open('Are you sure you want to perform this action', 'yes', 'no');
+    this.dialogService.open('Are you sure you want to perform this action', 'yes', 'no')
+    .subscribe((result) => {
+      if (result) {
+        console.log('They clicked the yes button, do something here');
+      }
+    });
   }
 }

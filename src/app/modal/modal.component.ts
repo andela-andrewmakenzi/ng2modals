@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MdDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-modal',
@@ -10,7 +11,7 @@ export class ModalComponent implements OnInit {
   option1: string;
   option2: string;
 
-  constructor() { }
+  constructor(public dialogRef: MdDialogRef<ModalComponent>) { }
 
   ngOnInit() {
   }
