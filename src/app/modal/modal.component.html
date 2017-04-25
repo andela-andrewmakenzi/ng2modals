@@ -1,5 +1,8 @@
-<div>
-  <div>{{msg}}</div>
-  <button (click)="dialogRef.close(true)">{{option1}}</button>
-  <button (click)="dialogRef.close()">{{option2}}</button>
-</div>
+<div md-dialog-title>{{msg}}</div>
+<md-dialog-content>
+  You will not be able to undo this
+</md-dialog-content>
+<md-dialog-actions>
+  <button md-button style="margin-right: 5px" (click)="dialogRef.close()">{{option1}}</button>
+  <button md-button (click)="dialogRef.close(true)">{{option2}}</button>
+</md-dialog-actions>

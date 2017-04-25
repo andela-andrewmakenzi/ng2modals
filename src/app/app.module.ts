@@ -2,14 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { MaterialModule } from '@angular/material';
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 // components
 import { AppComponent } from './app.component';
 import { ModalComponent } from './modal/modal.component';
 import { TestcComponent } from './testc/testc.component';
-
-// services
-import { ModalService } from './modal/modal.service';
 
 @NgModule({
   declarations: [
@@ -20,9 +19,11 @@ import { ModalService } from './modal/modal.service';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    MaterialModule,
+    BrowserAnimationsModule
   ],
-  providers: [ ModalService ],
+  providers: [ ],
   bootstrap: [ AppComponent],
   entryComponents: [ ModalComponent ]
 })

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalService } from './../modal/modal.service';
+import { MdDialog, MdDialogRef } from '@angular/material';
+import { ModalComponent } from './../modal/modal.component';
 
 @Component({
   selector: 'app-testc',
@@ -8,16 +9,24 @@ import { ModalService } from './../modal/modal.service';
 })
 export class TestcComponent implements OnInit {
 
-  constructor(private dialogService: ModalService) { }
+  constructor(private dialog: MdDialog) { }
 
   ngOnInit() {
   }
 
   handleClick() {
-    this.dialogService.open('Are you sure you want to perform this action', 'yes', 'no')
-    .subscribe((result) => {
+    this.dialog.open(ModalComponent, {
+       height: 'auto',
+       width: '25%',
+       disableClose: false,
+       data: {
+          message: 'Are you sure you want to proceed with this action',
+          option1: 'Cancel',
+          option2: 'Yes'
+       }
+    }).afterClosed().subscribe((result) => {
       if (result) {
-        console.log('They clicked the yes button, do something here');
+        console.log('you said yes');
       }
     });
   }
